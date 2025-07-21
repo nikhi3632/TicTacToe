@@ -28,6 +28,7 @@ struct ConfettiView: View {
             }
         }
         .ignoresSafeArea()
+        .accessibilityIdentifier("ConfettiView")
         .onAppear { animate = true }
     }
 
