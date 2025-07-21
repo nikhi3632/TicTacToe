@@ -21,6 +21,9 @@ struct CellView: View {
                 .foregroundColor(.primary)
         }
         .animation(.easeInOut, value: mark)
+        .accessibilityElement(children: .ignore)
+        .accessibilityAddTraits(.isButton)
+        .accessibilityLabel(mark)
     }
 }
 

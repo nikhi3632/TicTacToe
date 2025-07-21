@@ -23,13 +23,24 @@ final class TicTacToeUITests: XCTestCase {
     }
 
     @MainActor
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
+    func testUserCanPlayAndResetGame() throws {
+            let app = XCUIApplication()
+            app.launch()
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+            let firstCell = app.buttons["Cell0"]
+            let resetButton = app.buttons["ResetButton"]
+
+            XCTAssertTrue(firstCell.exists)
+            XCTAssertTrue(resetButton.exists)
+
+            // Tap the first cell
+            firstCell.tap()
+            XCTAssertEqual(firstCell.label, "X")
+
+            // Tap Reset
+            resetButton.tap()
+            XCTAssertEqual(firstCell.label, "")
+        }
 
     @MainActor
     func testLaunchPerformance() throws {
